@@ -1,0 +1,30 @@
+<!-- pagination start -->
+<div class="c-pagination">
+  <ul class="c-pagination__list">
+    <li class="c-pagination__item">
+      <a href="#" class="c-pagination__link">
+        <i class="bi bi-chevron-left"></i>
+        <span>Prev</span>
+      </a>
+    </li>
+    <% for (let index=0; index < 3; index++) { %>
+    <li class="c-pagination__item <%= index==1?'current':'' %>">
+      <a href="#" class="c-pagination__link">
+        <span> <%= index+1 %> </span>
+      </a>
+    </li>
+    <% } %>
+    <li class="c-pagination__item">
+      <div class="c-pagination__link">
+        <span> ... </span>
+      </div>
+    </li>
+    <li class="c-pagination__item">
+      <a href="#" class="c-pagination__link">
+        <span>Next</span>
+        <i class="bi bi-chevron-right"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- pagination end -->

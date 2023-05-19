@@ -1,0 +1,25 @@
+<%- include('./layout/header.ejs',{title: index_list[1].title }) %>
+<main class="overflow-hidden">
+  <div
+    class="flex h-screen w-screen flex-wrap items-center justify-center text-center"
+  >
+    <div class="w">
+      <div class="mx-auto max-w-[31.25rem] shadow">
+        <figure class="aspect-[4/3]">
+          <img src="/src/img/img_template.jpg" alt="" class="obj-cover" />
+        </figure>
+      </div>
+      <div class="title-xl mt-20">
+        <h1>Hello World</h1>
+      </div>
+      <div class="mt-1 flex items-center justify-center">
+        <span>From src</span>
+        <i class="bi bi-chevron-double-right"></i>
+        <span>ejs</span>
+        <i class="bi bi-chevron-double-right"></i>
+        <span>home.ejs</span>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include('./layout/footer.ejs') %>

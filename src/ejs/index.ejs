@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>Index</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="my-20 xs:my-10">
+          <ul class="space-y-5 text-center">
+            <% index_list.forEach((e,i)=> { if (i!=0) { %>
+            <li>
+              <a
+                href="/<%= e.file_name %>.html"
+                class="ah:hover:text-main ah:hover:underline"
+              >
+                <%= e.title %>
+              </a>
+            </li>
+            <% }}); %>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
