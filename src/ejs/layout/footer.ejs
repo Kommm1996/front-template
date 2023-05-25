@@ -1,6 +1,3 @@
-<!-- <html>
-  <body>
-    <div> -->
 <!-- footer start -->
 <footer>
   <div
@@ -27,23 +24,34 @@
   <!-- aside start -->
   <div
     class="fixed right-0 top-1/2 z-30 -translate-y-1/2 animate-fadeIn xs:bottom-16 xs:right-2.5 xs:top-auto xs:translate-y-0"
-    v-if="sidebar_toggle">
+    v-if="sidebar_toggle"
+  >
     <div class="title-md !font-normal !text-white">
       <!-- email -->
-      <div class="aspect-square w-16 bg-main hover:bg-title md:w-14 xs:hidden xs:w-12">
-        <div class="flex h-full w-full cursor-pointer items-center justify-center" @click="contact_toggle_fn(true)">
+      <div
+        class="aspect-square w-16 bg-main hover:bg-title md:w-14 xs:hidden xs:w-12"
+      >
+        <div
+          class="flex h-full w-full cursor-pointer items-center justify-center"
+          @click="contact_toggle_fn($event,true)"
+        >
           <i class="bi bi-envelope"></i>
         </div>
       </div>
       <!-- whatsapp -->
-      <div class="aspect-square w-16 bg-main hover:bg-title md:w-14 xs:hidden xs:w-12">
+      <div
+        class="aspect-square w-16 bg-main hover:bg-title md:w-14 xs:hidden xs:w-12"
+      >
         <a href="#" class="flex h-full w-full items-center justify-center">
           <i class="bi bi-whatsapp animate-whatsapp"></i>
         </a>
       </div>
       <!-- go top -->
       <div class="aspect-square w-16 bg-main hover:bg-title md:w-14 xs:w-12">
-        <div class="flex h-full w-full cursor-pointer items-center justify-center" @click="to_posi()">
+        <div
+          class="flex h-full w-full cursor-pointer items-center justify-center"
+          @click="to_posi()"
+        >
           <i class="bi bi-chevron-up"></i>
         </div>
       </div>
@@ -52,24 +60,41 @@
   <!-- aside end -->
 
   <!-- contact start -->
-  <div class="fixed inset-0 z-50 hidden [&.active]:block" :class="{active:contact_toggle}"
-    @click="contact_toggle_fn(false)">
+  <div
+    class="fixed inset-0 z-50 hidden [&.active]:block"
+    :class="{active:contact_toggle}"
+    @click="contact_toggle_fn(false)"
+  >
     <div
-      class="flex h-full w-full items-center justify-center bg-black/70 backdrop-blur-[1.25rem] backdrop-saturate-[180%]">
-      <div class="relative mx-3 w-full max-w-4xl">
-        <div class="max-h-[90vh] animate-fadeInUp overflow-y-auto">
+      class="h-full w-full bg-black/70 backdrop-blur-[1.25rem] backdrop-saturate-[180%]"
+    >
+      <div
+        id="pop-form"
+        class="absolute left-1/2 top-1/2 w-full max-w-4xl -translate-x-1/2 -translate-y-1/2"
+      >
+        <div class="relative mx-3 max-h-[90vh] overflow-y-auto">
           <!-- form -->
-          <div class="relative bg-white px-15 py-12.5 xs:px-3.75 xs:py-6" @click.stop>
+          <div class="bg-white px-15 py-12.5 xs:px-3.75 xs:py-6" @click.stop>
             <div class="title-xl mb-10 text-center md:mb-8 xs:mb-6">
               <h2>Get In Touch</h2>
             </div>
             <form action="">
               <div class="grid grid-cols-2 gap-5">
                 <div class="xs:col-span-2">
-                  <input type="text" placeholder="Name*" required class="pop-form__input form-input" />
+                  <input
+                    type="text"
+                    placeholder="Name*"
+                    required
+                    class="pop-form__input form-input"
+                  />
                 </div>
                 <div class="xs:col-span-2">
-                  <input type="email" placeholder="Email*" required class="pop-form__input form-input" />
+                  <input
+                    type="email"
+                    placeholder="Email*"
+                    required
+                    class="pop-form__input form-input"
+                  />
                 </div>
                 <div class="col-span-2">
                   <select class="pop-form__select form-select">
@@ -82,7 +107,11 @@
                   </select>
                 </div>
                 <div class="col-span-2">
-                  <textarea placeholder="Message*" class="pop-form__textarea form-textarea" required></textarea>
+                  <textarea
+                    placeholder="Message*"
+                    class="pop-form__textarea form-textarea"
+                    required
+                  ></textarea>
                 </div>
                 <!-- verification -->
                 <div class="col-span-2 border px-4 py-3.5">
@@ -95,13 +124,15 @@
               </div>
             </form>
           </div>
-        </div>
-        <!-- close icon -->
-        <div class="c-active absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 cursor-pointer"
-          @click="contact_toggle_fn(false)">
-          <i>
-            <img src="/src/icon/icon_close.svg" alt="icon_close" />
-          </i>
+          <!-- close icon -->
+          <div
+            class="c-active absolute right-3 top-3 cursor-pointer"
+            @click="contact_toggle_fn(false)"
+          >
+            <i>
+              <img src="/src/icon/icon_close.svg" alt="icon_close" />
+            </i>
+          </div>
         </div>
       </div>
     </div>
@@ -109,23 +140,38 @@
   <!-- contact end -->
 
   <!-- search start -->
-  <div class="fixed inset-0 z-50 hidden [&.active]:block" :class="{active:search_toggle}" v-if="search_toggle"
-    @click="search_toggle_fn(false)">
+  <div
+    class="fixed inset-0 z-50 hidden [&.active]:block"
+    :class="{active:search_toggle}"
+    @click="search_toggle_fn(false)"
+  >
     <div
-      class="flex h-full w-full items-center justify-center bg-black/70 backdrop-blur-[1.25rem] backdrop-saturate-[180%]">
-      <div class="mx-3 w-full max-w-xl">
+      class="h-full w-full bg-black/70 backdrop-blur-[1.25rem] backdrop-saturate-[180%]"
+    >
+      <div
+        id="pop-search"
+        class="absolute left-1/2 top-1/2 w-full max-w-xl -translate-x-1/2 -translate-y-1/2"
+      >
         <form action="">
-          <div class="relative flex animate-fadeInDown items-center overflow-hidden rounded-full bg-white px-4 py-3"
-            @click.stop>
+          <div
+            class="relative mx-3 flex items-center overflow-hidden rounded-full bg-white px-4 py-3"
+            @click.stop
+          >
             <!-- input -->
             <div class="flex-grow">
-              <input type="search" required placeholder="Search Your Want..."
-                class="form-input border-0 border-b !px-0" />
+              <input
+                type="search"
+                required
+                placeholder="Search Your Want..."
+                class="form-input border-0 border-b !px-0"
+              />
             </div>
             <!-- submit -->
             <div class="flex-none">
-              <button type="submit"
-                class="c-active flex aspect-square w-10 items-center justify-center rounded-full bg-main text-white">
+              <button
+                type="submit"
+                class="c-active flex aspect-square w-10 items-center justify-center rounded-full bg-main text-white"
+              >
                 <i class="bi bi-search"></i>
               </button>
             </div>
@@ -137,15 +183,33 @@
   <!-- search end -->
 
   <!-- video start -->
-  <div class="fixed inset-0 z-50 hidden [&.active]:block" :class="{active:video_toggle}" v-if="video_toggle"
-    @click="video_toggle_fn(false)">
+  <div
+    class="fixed inset-0 z-50 hidden [&.active]:block"
+    :class="{active:video_toggle}"
+    @click="video_toggle_fn(false)"
+  >
     <div
-      class="flex h-full w-full items-center justify-center bg-black/70 backdrop-blur-[1.25rem] backdrop-saturate-[180%]">
-      <div class="mx-3 w-full max-w-4xl">
+      class="h-full w-full bg-black/70 backdrop-blur-[1.25rem] backdrop-saturate-[180%]"
+    >
+      <div
+        id="pop-video"
+        class="absolute left-1/2 top-1/2 w-full max-w-4xl -translate-x-1/2 -translate-y-1/2"
+      >
         <!-- video -->
-        <div class="aspect-video overflow-hidden border" @click.stop>
-          <iframe width="100%" height="100%" :src="video_src" scrolling="no" border="0" frameborder="no"
-            framespacing="0" allowfullscreen="true"></iframe>
+        <div
+          class="mx-3 aspect-video overflow-hidden border bg-white"
+          @click.stop
+        >
+          <iframe
+            width="100%"
+            height="100%"
+            :src="video_src"
+            scrolling="no"
+            border="0"
+            frameborder="no"
+            framespacing="0"
+            allowfullscreen="true"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -158,15 +222,13 @@
       <div class="grid grid-cols-3 divide-x py-2">
         <!-- item start -->
         <div>
-          <div class="c-active block" @click="contact_toggle_fn(true)">
+          <div class="c-active block" @click="contact_toggle_fn($event,true)">
             <!-- icon -->
             <div class="mx-auto aspect-square w-5 text-main">
               <i class="bi bi-chat text-xl"></i>
             </div>
             <!-- title -->
-            <div class="mt-1 text-center text-xs leading-none">
-              Inquiry
-            </div>
+            <div class="mt-1 text-center text-xs leading-none">Inquiry</div>
           </div>
         </div>
         <!-- item end -->
@@ -178,9 +240,7 @@
               <i class="bi bi-whatsapp animate-whatsapp text-xl"></i>
             </div>
             <!-- title -->
-            <div class="mt-1 text-center text-xs leading-none">
-              Whatsapp
-            </div>
+            <div class="mt-1 text-center text-xs leading-none">Whatsapp</div>
           </a>
         </div>
         <!-- item end -->
@@ -202,8 +262,5 @@
   <!-- mobile bottom end -->
 </div>
 <!-- common elements end -->
-</div>
-<!-- base container end -->
-</body>
 
-</html>
+<%- include('./html-end.ejs') %>

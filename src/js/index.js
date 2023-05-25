@@ -28,6 +28,7 @@ createApp({
   video_src: "",
   mobile_menu_toggle: false,
   to_posi: Function,
+  zoomIn: Function,
   // methods
   doc_toggle_fn(val) {
     if (val) {
@@ -36,20 +37,38 @@ createApp({
       document.querySelector("body").classList.remove("doc--active");
     }
   },
-  mobile_menu_toggle_fn(toggle) {
+  mobile_menu_toggle_fn(e, toggle) {
     this.doc_toggle_fn(toggle);
     this.mobile_menu_toggle = toggle;
+    if (e) {
+      let x = e.clientX;
+      let y = e.clientY;
+      this.zoomIn("#mobile-menu", x, y);
+    }
   },
   parent_active_toggle(e) {
     e.currentTarget.parentElement.classList.toggle("active");
   },
-  contact_toggle_fn(toggle) {
+  self_active_toggle(e) {
+    e.currentTarget.classList.toggle("active");
+  },
+  contact_toggle_fn(e, toggle) {
     this.doc_toggle_fn(toggle);
     this.contact_toggle = toggle;
+    if (e) {
+      let x = e.clientX;
+      let y = e.clientY;
+      this.zoomIn("#pop-form", x, y);
+    }
   },
-  search_toggle_fn(toggle) {
+  search_toggle_fn(e, toggle) {
     this.doc_toggle_fn(toggle);
     this.search_toggle = toggle;
+    if (e) {
+      let x = e.clientX;
+      let y = e.clientY;
+      this.zoomIn("#pop-search", x, y);
+    }
   },
   video_toggle_fn(e, toggle) {
     if (toggle) {
@@ -57,6 +76,11 @@ createApp({
     }
     this.doc_toggle_fn(toggle);
     this.video_toggle = toggle;
+    if (e) {
+      let x = e.clientX;
+      let y = e.clientY;
+      this.zoomIn("#pop-video", x, y);
+    }
   },
   // mounted
   mounted() {
@@ -68,6 +92,7 @@ createApp({
     // initGSAP
     let gsap_obj = initGSAP();
     this.to_posi = gsap_obj.scrollTo;
+    this.zoomIn = gsap_obj.zoomIn;
     // SmoothScroll
     SmoothScroll({ animationTime: 600 });
     // console.info

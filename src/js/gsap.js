@@ -76,6 +76,18 @@ var initGSAP = function () {
     });
   });
 
+  let zoomIn = function (e, x, y) {
+    gsap.from(e, {
+      scale: 0,
+      left: x,
+      top: y,
+      xPercent: -50,
+      yPercent: -50,
+      duration: .5,
+      ease: "power3.out",
+    });
+  }
+
   let scrollTo = function (top) {
     gsap.to("html", {
       scrollTo: top || 0,
@@ -92,8 +104,8 @@ var initGSAP = function () {
       onToggle: start_callback,
     })
   };
-  
-  return { scrollTo, scroll_posi };
+
+  return { scrollTo, scroll_posi, zoomIn };
 };
 
 export default initGSAP;

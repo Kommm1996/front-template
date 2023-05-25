@@ -5,7 +5,7 @@
 @layer base {
   @media (min-width: 1280px) {
     ::-webkit-scrollbar {
-      @apply h-2 w-2 bg-[#F1F1F1];
+      @apply w-2 bg-[#F1F1F1];
     }
 
     ::-webkit-scrollbar-thumb {
