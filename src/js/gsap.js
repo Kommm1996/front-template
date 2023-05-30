@@ -76,14 +76,13 @@ var initGSAP = function () {
     });
   });
 
-  let zoomIn = function (e, x, y) {
+  let zoomIn = function (e, x, y, option) {
     gsap.from(e, {
+      ...option,
       scale: 0,
       left: x,
       top: y,
-      xPercent: -50,
-      yPercent: -50,
-      duration: .5,
+      duration: .6,
       ease: "power3.out",
     });
   }

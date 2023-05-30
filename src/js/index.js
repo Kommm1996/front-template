@@ -43,7 +43,7 @@ createApp({
     if (e) {
       let x = e.clientX;
       let y = e.clientY;
-      this.zoomIn("#mobile-menu", x, y);
+      this.zoomIn("#mobile-menu", x, y, { xPercent: -50, yPercent: -50 });
     }
   },
   parent_active_toggle(e) {
