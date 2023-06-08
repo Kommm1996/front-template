@@ -85,7 +85,7 @@ createApp({
   // mounted
   mounted() {
     this.loading_toggle = false;
-    // init swiper
+    // initSwiper
     initSwiper();
     // initCountUp
     initCountUp();

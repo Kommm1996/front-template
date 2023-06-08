@@ -17,6 +17,7 @@ data.index_list.forEach((e) => {
 });
 
 module.exports = {
+  cache: false,
   entry: ["./src/js/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
