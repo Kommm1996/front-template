@@ -20,6 +20,7 @@ module.exports = {
   cache: false,
   entry: ["./src/js/index.js"],
   output: {
+    publicPath:'/',
     path: path.resolve(__dirname, "dist"),
     filename: "lib/built/built.js",
   },
@@ -34,6 +35,13 @@ module.exports = {
         type: "asset/resource",
         generator: {
           filename: "lib/img/[name][ext]",
+        },
+      },
+      {
+        test: /\.mp4$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "lib/video/[name][ext]",
         },
       },
       {

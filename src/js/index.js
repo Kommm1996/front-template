@@ -29,6 +29,9 @@ createApp({
   mobile_menu_toggle: false,
   to_posi: Function,
   zoomIn: Function,
+  zoomOut: Function,
+  x: '50%',
+  y: '50%',
   // methods
   doc_toggle_fn(val) {
     if (val) {
@@ -38,13 +41,7 @@ createApp({
     }
   },
   mobile_menu_toggle_fn(e, toggle) {
-    this.doc_toggle_fn(toggle);
-    this.mobile_menu_toggle = toggle;
-    if (e) {
-      let x = e.clientX;
-      let y = e.clientY;
-      this.zoomIn("#mobile-menu", x, y, { xPercent: -50, yPercent: -50 });
-    }
+    this.pop_animation_fn(e, toggle, '#mobile-menu', 'mobile_menu', 'left')
   },
   parent_active_toggle(e) {
     e.currentTarget.parentElement.classList.toggle("active");
@@ -53,33 +50,38 @@ createApp({
     e.currentTarget.classList.toggle("active");
   },
   contact_toggle_fn(e, toggle) {
-    this.doc_toggle_fn(toggle);
-    this.contact_toggle = toggle;
-    if (e) {
-      let x = e.clientX;
-      let y = e.clientY;
-      this.zoomIn("#pop-form", x, y);
-    }
+    this.pop_animation_fn(e, toggle, '#pop-form', 'contact')
   },
   search_toggle_fn(e, toggle) {
-    this.doc_toggle_fn(toggle);
-    this.search_toggle = toggle;
-    if (e) {
-      let x = e.clientX;
-      let y = e.clientY;
-      this.zoomIn("#pop-search", x, y);
-    }
+    this.pop_animation_fn(e, toggle, '#pop-search', 'search')
   },
   video_toggle_fn(e, toggle) {
-    if (toggle) {
-      this.video_src = e.currentTarget.dataset.src;
-    }
-    this.doc_toggle_fn(toggle);
-    this.video_toggle = toggle;
+    this.pop_animation_fn(e, toggle, '#pop-video', 'video')
+  },
+  pop_animation_fn(e, toggle, selector, state, posi) {
     if (e) {
-      let x = e.clientX;
-      let y = e.clientY;
-      this.zoomIn("#pop-video", x, y);
+      this.x = e.clientX;
+      this.y = e.clientY;
+    }
+    if (toggle) {
+      if (selector === "#pop-video") {
+        this.video_src = e.currentTarget.dataset.src;
+      }
+      this.doc_toggle_fn(toggle);
+      this[state + '_toggle'] = toggle;
+      this.zoomIn(selector, this.x, this.y, posi);
+    } else {
+      if (selector === "#pop-video") {
+        this.video_src = '';
+      }
+      this.zoomOut(selector, this.x, this.y, posi);
+      let time_id = setTimeout(() => {
+        this.doc_toggle_fn(toggle);
+        this[state + '_toggle'] = toggle;
+        this.x = '50%';
+        this.y = '50%';
+        clearTimeout(time_id)
+      }, 280)
     }
   },
   // mounted
@@ -93,6 +95,7 @@ createApp({
     let gsap_obj = initGSAP();
     this.to_posi = gsap_obj.scrollTo;
     this.zoomIn = gsap_obj.zoomIn;
+    this.zoomOut = gsap_obj.zoomOut;
     // SmoothScroll
     SmoothScroll({ animationTime: 600 });
     // console.info
