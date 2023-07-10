@@ -35,18 +35,19 @@ module.exports = {
       },
       colors: {
         main: "#1E96DC",
-        text: "#696A6B",
-        title: "#141E27",
-        border: "#E6E6E6",
+        text: "#262626",
+        "sec-text": "#8C8C8C",
+        title: "#262626",
+        border: "#D9D9D9",
       },
       borderColor: {
-        DEFAULT: "#E6E6E6",
+        DEFAULT: "#D9D9D9",
       },
       boxShadow: {
         DEFAULT: "0px 2px 10px 1px rgba(20, 30, 39, 0.15)",
       },
-      backgroundImage:{
-        
+      backgroundImage: {
+
       },
       keyframes: {
         fadeIn: {

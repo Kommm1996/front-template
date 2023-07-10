@@ -79,7 +79,7 @@
 
   .form-input,
   .form-textarea {
-    @apply block w-full resize-none !border-border !px-4 !py-2.5 !ring-0 placeholder:!text-[#CECECE] focus:!border-main xs:!text-sm;
+    @apply block w-full resize-none !border-border !px-4 !py-2.5 !ring-0 placeholder:!text-sec-text focus:!border-main xs:!text-sm;
   }
 
   .form-checkbox {
