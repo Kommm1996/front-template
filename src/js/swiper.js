@@ -1,5 +1,5 @@
-import Swiper from "swiper/swiper-bundle.esm.js";
-import "swiper/swiper-bundle.min.css";
+import Swiper from "swiper";
+import "swiper/css";
 
 var initSwiper = function () {
   var home_banner_swiper = new Swiper(".home-banner-swiper", {

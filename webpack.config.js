@@ -17,7 +17,7 @@ data.index_list.forEach((e) => {
 });
 
 module.exports = {
-  cache: false,
+  // cache: false,
   entry: ["./src/js/index.js"],
   output: {
     publicPath:'/',
