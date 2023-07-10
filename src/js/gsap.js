@@ -4,7 +4,7 @@ import {
   ScrollToPlugin,
 } from "gsap/all";
 
-var initGSAP = function () {
+let initGSAP = function () {
   // don't forget to register plugins
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   gsap.matchMedia().add("(min-width: 1280px)", () => {

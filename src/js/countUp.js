@@ -1,8 +1,8 @@
 import { CountUp } from "countup.js";
 // utilities
 import { isElementInViewport } from "./utilities";
-var initCountUp = function () {
-  var countUpFn = function (trigger, stati) {
+let initCountUp = function () {
+  let countUpFn = function (trigger, stati) {
     let statiEl = document.querySelectorAll(stati);
     let numAnim = new Array();
     for (let i = 0; i < statiEl.length; i++) {

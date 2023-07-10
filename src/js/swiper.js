@@ -1,12 +1,12 @@
-import Swiper from "swiper";
-import "swiper/css";
+import Swiper from "swiper/swiper-bundle.esm.js";
+import "swiper/swiper-bundle.min.css";
 
-var initSwiper = function () {
-  var home_banner_swiper = new Swiper(".home-banner-swiper", {
-    speed: 400,
+let initSwiper = function () {
+  let home_banner_swiper = new Swiper(".home-banner-swiper", {
+    speed: 600,
     loop: true,
     slidesPerView: 1,
-    // spaceBetween: 10,
+    spaceBetween: 10,
     parallax: true,
     observer: true,
     observeParents: true,
