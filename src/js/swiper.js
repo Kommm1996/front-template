@@ -2,7 +2,7 @@ import Swiper from "swiper/swiper-bundle.esm.js";
 import "swiper/swiper-bundle.min.css";
 
 let initSwiper = function () {
-  let home_banner_swiper = new Swiper(".home-banner-swiper", {
+  new Swiper(".home-banner-swiper", {
     speed: 600,
     loop: true,
     slidesPerView: 1,
