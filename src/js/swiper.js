@@ -1,8 +1,9 @@
-import Swiper from "swiper/swiper-bundle.esm.js";
-import "swiper/swiper-bundle.min.css";
+import Swiper from 'swiper/swiper-bundle.esm';
+import 'swiper/swiper-bundle.min.css';
 
-let initSwiper = function () {
-  new Swiper(".home-banner-swiper", {
+const initSwiper = () => {
+  const swipers = [];
+  swipers.push(new Swiper('.home-banner-swiper', {
     speed: 600,
     loop: true,
     slidesPerView: 1,
@@ -20,15 +21,15 @@ let initSwiper = function () {
       prevEl: '.home-banner-swiper-button-prev',
     },
     pagination: {
-      el: ".home-banner-swiper-pagination",
-      clickable: true
+      el: '.home-banner-swiper-pagination',
+      clickable: true,
     },
     breakpoints: {
       1280: {
         speed: 1000,
       },
-    }
-  });
-}
+    },
+  }));
+};
 
 export default initSwiper;

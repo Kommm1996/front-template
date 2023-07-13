@@ -2,58 +2,58 @@ import {
   gsap,
   ScrollTrigger,
   ScrollToPlugin,
-} from "gsap/all";
+} from 'gsap/all';
 
-let initGSAP = function () {
+const initGSAP = () => {
   // don't forget to register plugins
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-  gsap.matchMedia().add("(min-width: 1280px)", () => {
+  gsap.matchMedia().add('(min-width: 1280px)', () => {
     // scroll fade
-    document.querySelectorAll(".scrollFadeInUp")?.forEach((e) => {
+    document.querySelectorAll('.scrollFadeInUp')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
         },
-        y: "100",
+        y: '100',
         autoAlpha: 0,
         duration: 1,
       });
     });
-    document.querySelectorAll(".scrollFadeInLeft")?.forEach((e) => {
+    document.querySelectorAll('.scrollFadeInLeft')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
         },
-        x: "100",
+        x: '100',
         autoAlpha: 0,
         duration: 1,
       });
     });
-    document.querySelectorAll(".scrollFadeInRight")?.forEach((e) => {
+    document.querySelectorAll('.scrollFadeInRight')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
         },
-        x: "-100",
+        x: '-100',
         autoAlpha: 0,
         duration: 1,
       });
     });
-    document.querySelectorAll(".scrollFadeZoomIn")?.forEach((e) => {
+    document.querySelectorAll('.scrollFadeZoomIn')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
         },
         scale: 0.8,
@@ -61,12 +61,12 @@ let initGSAP = function () {
         duration: 1,
       });
     });
-    document.querySelectorAll(".scrollFadeZoomOut")?.forEach((e) => {
+    document.querySelectorAll('.scrollFadeZoomOut')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
         },
         scale: 1.2,
@@ -75,64 +75,64 @@ let initGSAP = function () {
       });
     });
     // fade
-    document.querySelectorAll(".fadeInUp")?.forEach((e) => {
+    document.querySelectorAll('.fadeInUp')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top 80%",
+          start: 'top 80%',
         },
-        y: "100",
+        y: '100',
         autoAlpha: 0,
         duration: 1,
-        ease: "power3.out",
+        ease: 'power3.out',
       });
     });
-    document.querySelectorAll(".fadeInLeft")?.forEach((e) => {
+    document.querySelectorAll('.fadeInLeft')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top 80%",
+          start: 'top 80%',
         },
-        x: "100",
+        x: '100',
         autoAlpha: 0,
         duration: 1,
-        ease: "power3.out",
+        ease: 'power3.out',
       });
     });
-    document.querySelectorAll(".fadeInRight")?.forEach((e) => {
+    document.querySelectorAll('.fadeInRight')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top 80%",
+          start: 'top 80%',
         },
-        x: "-100",
+        x: '-100',
         autoAlpha: 0,
         duration: 1,
-        ease: "power3.out",
+        ease: 'power3.out',
       });
     });
-    document.querySelectorAll(".fadeZoomIn")?.forEach((e) => {
+    document.querySelectorAll('.fadeZoomIn')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top 80%",
+          start: 'top 80%',
         },
         scale: 0.8,
         autoAlpha: 0,
         duration: 1,
-        ease: "power3.out",
+        ease: 'power3.out',
       });
     });
-    document.querySelectorAll(".fadeZoomOut")?.forEach((e) => {
+    document.querySelectorAll('.fadeZoomOut')?.forEach((e) => {
       gsap.from(e, {
         scrollTrigger: {
           trigger: e,
-          start: "top 80%",
+          start: 'top 80%',
         },
         scale: 1.2,
         autoAlpha: 0,
         duration: 1,
-        ease: "power3.out",
+        ease: 'power3.out',
       });
     });
   });
@@ -144,7 +144,7 @@ let initGSAP = function () {
  * @param {number} y - 中心点纵坐标.
  * @param {string} [posi='center'] - 元素初始位置，默认为中心位置.
  */
-  let zoomIn = function (e, x, y, posi = 'center') {
+  const zoomIn = (e, x, y, posi = 'center') => {
     const posiObj = (posi === 'left') ? {
       left: '0',
       top: '0',
@@ -168,10 +168,10 @@ let initGSAP = function () {
       top: y,
       xPercent: -50,
       yPercent: -50,
-      duration: .5,
-      ease: "easeOutExpo"
+      duration: 0.5,
+      ease: 'easeOutExpo',
     });
-  }
+  };
 
   /**
    * 缩小动画
@@ -180,7 +180,7 @@ let initGSAP = function () {
    * @param {number} y - 还原点纵坐标.
    * @param {string} [posi='center'] - 元素还原位置，默认为中心位置.
    */
-  let zoomOut = function (e, x, y, posi = 'center') {
+  const zoomOut = (e, x, y, posi = 'center') => {
     const posiObj = (posi === 'left') ? {
       left: '0',
       top: '0',
@@ -199,34 +199,36 @@ let initGSAP = function () {
       xPercent: -50,
       yPercent: -50,
       scale: 0,
-      duration: .3,
-      ease: "easeOutExpo"
+      duration: 0.3,
+      ease: 'easeOutExpo',
     }).eventCallback('onComplete', () => {
       gsap.set(e, {
         ...posiObj,
         scale: 1,
-      })
+      });
     });
-  }
+  };
 
-  let scrollTo = function (top) {
-    gsap.to("html", {
+  const scrollTo = (top) => {
+    gsap.to('html', {
       scrollTo: top || 0,
       duration: 1,
-      ease: "easeOutQuad",
+      ease: 'easeOutQuad',
     });
   };
 
-  let scroll_posi = function (e, start, end, start_callback) {
+  const scrollPosi = (e, start, end, startCallback) => {
     ScrollTrigger.create({
       trigger: e,
-      start: start,
-      end: end,
-      onToggle: start_callback,
-    })
+      start,
+      end,
+      onToggle: startCallback,
+    });
   };
 
-  return { scrollTo, scroll_posi, zoomIn, zoomOut };
+  return {
+    scrollTo, scrollPosi, zoomIn, zoomOut,
+  };
 };
 
 export default initGSAP;

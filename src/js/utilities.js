@@ -1,17 +1,17 @@
 function isElementInViewport(el, inCB, outCB, rootMargin) {
-  let margin = rootMargin || "-10%";
-  function handleIntersect(entries, observer) {
-    let entry = entries[0];
+  const margin = rootMargin || '-10%';
+  function handleIntersect(entries) {
+    const entry = entries[0];
     if (entry.isIntersecting) {
-      if (inCB && typeof inCB === "function") inCB(el, entry);
-    } else {
-      if (outCB && typeof outCB === "function") outCB(el, entry);
-    }
+      if (inCB && typeof inCB === 'function') inCB(el, entry);
+    } else if (outCB && typeof outCB === 'function') outCB(el, entry);
   }
-  let observer = new IntersectionObserver(handleIntersect, {
+  const observer = new IntersectionObserver(handleIntersect, {
     rootMargin: margin,
   });
-  el ? observer.observe(el) : "";
+  if (el) {
+    observer.observe(el);
+  }
 }
 
 function getElementTop(element) {
@@ -24,4 +24,4 @@ function getElementTop(element) {
   return top;
 }
 
-export { isElementInViewport, getElementTop }
+export { isElementInViewport, getElementTop };

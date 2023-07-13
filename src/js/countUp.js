@@ -1,38 +1,39 @@
-import { CountUp } from "countup.js";
+import { CountUp } from 'countup.js';
 // utilities
-import { isElementInViewport } from "./utilities";
-let initCountUp = function () {
-  let countUpFn = function (trigger, stati) {
-    let statiEl = document.querySelectorAll(stati);
-    let numAnim = new Array();
-    for (let i = 0; i < statiEl.length; i++) {
+import { isElementInViewport } from './utilities';
+
+const initCountUp = () => {
+  const countUpFn = (trigger, stati) => {
+    const statiEl = document.querySelectorAll(stati);
+    const numAnim = [];
+    for (let i = 0; i < statiEl.length; i += 1) {
       const e = statiEl[i];
-      const num = parseInt(e.getAttribute("data-num"));
+      const num = parseInt(e.getAttribute('data-num'), 10);
       numAnim.push(
         new CountUp(e, num, {
           duration: 3,
-        })
+        }),
       );
     }
-    let statiTiggerEl = document.querySelector(trigger);
+    const statiTiggerEl = document.querySelector(trigger);
     if (statiTiggerEl) {
       isElementInViewport(
         statiTiggerEl,
-        function () {
+        () => {
           numAnim.forEach((e) => {
             e.start();
           });
         },
-        function () {
+        () => {
           numAnim.forEach((e) => {
             e.reset();
           });
         },
-        "0%"
+        '0%',
       );
     }
   };
-  countUpFn("#countUpTrigger-0", ".countUpTrigger-0-item");
+  countUpFn('#countUpTrigger-0', '.countUpTrigger-0-item');
 };
 
 export default initCountUp;
