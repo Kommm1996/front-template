@@ -75,7 +75,7 @@ createApp({
       this.zoomOut(selector, this.x, this.y, posi);
       const timeId = setTimeout(() => {
         this.docToggleFn(toggle);
-        this[`${state}_toggle`] = toggle;
+        this[`${state}Toggle`] = toggle;
         this.x = '50%';
         this.y = '50%';
         clearTimeout(timeId);
